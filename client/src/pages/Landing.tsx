@@ -8,7 +8,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-slate-900/90 to-indigo-900/30 geometric-pattern relative">
+    <div className="min-h-screen bg-gradient-to-br from-background via-slate-900/90 to-indigo-900/30 geometric-pattern relative page-transition">
       <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-slate-900/70 to-indigo-900/20"></div>
       
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6">

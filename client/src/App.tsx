@@ -7,6 +7,8 @@ import { useAuth } from "@/hooks/useAuth";
 import Landing from "@/pages/Landing";
 import Home from "@/pages/Home";
 import Chat from "@/pages/Chat";
+import History from "@/pages/History";
+import Profile from "@/pages/Profile";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -20,6 +22,8 @@ function Router() {
         <>
           <Route path="/" component={Home} />
           <Route path="/chat/:category" component={Chat} />
+          <Route path="/history" component={History} />
+          <Route path="/profile" component={Profile} />
         </>
       )}
       <Route component={NotFound} />

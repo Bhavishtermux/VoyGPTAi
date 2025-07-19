@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -64,13 +65,23 @@ const filterOptions = ['All', 'Design', 'Creative', 'Technical'];
 
 export default function Dashboard() {
   const { user } = useAuth();
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const handleLogout = () => {
     window.location.href = "/api/logout";
   };
 
+  // Filter categories based on selected filter
+  const filteredCategories = categories.filter(category => {
+    if (activeFilter === 'All') return true;
+    if (activeFilter === 'Design') return ['branding', 'creative'].includes(category.id);
+    if (activeFilter === 'Creative') return ['writing', 'creative', 'marketing'].includes(category.id);
+    if (activeFilter === 'Technical') return ['technical', 'analytics'].includes(category.id);
+    return true;
+  });
+
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background pb-24 page-transition">
       {/* Header */}
       <div className="p-6 pb-4">
         <div className="flex items-center justify-between mb-6">
@@ -106,12 +117,13 @@ export default function Dashboard() {
           {filterOptions.map((filter, index) => (
             <Badge
               key={filter}
-              variant={index === 0 ? "default" : "secondary"}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap cursor-pointer ${
-                index === 0 
-                  ? 'bg-primary text-white hover:bg-primary/90' 
-                  : 'glass-card bg-slate-700/40 text-slate-300 hover:bg-slate-700/60'
+              variant={filter === activeFilter ? "default" : "secondary"}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap cursor-pointer transition-all duration-200 ${
+                filter === activeFilter 
+                  ? 'bg-primary text-white hover:bg-primary/90 transform scale-105' 
+                  : 'glass-card bg-slate-700/40 text-slate-300 hover:bg-slate-700/60 hover:scale-105'
               }`}
+              onClick={() => setActiveFilter(filter)}
             >
               {filter}
             </Badge>
@@ -121,13 +133,13 @@ export default function Dashboard() {
 
       {/* Feature Cards Grid */}
       <div className="px-6 grid grid-cols-2 gap-4">
-        {categories.map((category) => {
+        {filteredCategories.map((category) => {
           const IconComponent = category.icon;
           return (
             <Link key={category.id} href={`/chat/${category.id}`}>
-              <Card className="glass-card border-slate-700/50 cursor-pointer hover:bg-slate-700/40 transition-all h-full">
+              <Card className="glass-card border-slate-700/50 cursor-pointer hover:bg-slate-700/40 transition-all duration-300 h-full scale-hover">
                 <CardContent className="p-5">
-                  <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mb-4`}>
+                  <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mb-4 transition-transform duration-200`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <h3 className="font-semibold mb-2 text-slate-50">{category.title}</h3>

@@ -221,7 +221,7 @@ export default function ChatInterface() {
   const suggestions = suggestedMessages[category as keyof typeof suggestedMessages] || [];
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col page-transition">
       {/* Header */}
       <header className="glass-nav p-4 flex items-center border-b border-slate-700/50">
         <Button
