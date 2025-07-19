@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BottomNavigation from "@/components/BottomNavigation";
+import WelcomeModal from "@/components/WelcomeModal";
 import { Link } from "wouter";
 import { 
   PenTool, 
@@ -81,12 +82,14 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="min-h-screen bg-background pb-24 page-transition">
+    <>
+      <WelcomeModal />
+      <div className="min-h-screen bg-background pb-24 page-transition">
       {/* Header */}
       <div className="p-6 pb-4">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-slate-50">AI Assistant</h1>
+            <h1 className="text-2xl font-bold text-slate-50">VoyGPT</h1>
             <p className="text-slate-400 text-sm">Choose your learning path</p>
           </div>
           <div className="flex items-center gap-3">
@@ -154,6 +157,7 @@ export default function Dashboard() {
       </div>
 
       <BottomNavigation />
-    </div>
+      </div>
+    </>
   );
 }

@@ -1,8 +1,8 @@
-# AI Brand Assistant
+# VoyGPT - AI Brand Assistant
 
 ## Overview
 
-This repository contains a full-stack AI Brand Assistant application built with React frontend and Express backend. The application serves as an intelligent companion for mastering AI tools and building powerful brands, organized around six main categories: Writing Tools, Brand Strategy, Image & Art, Marketing, Tech Integration, and Analytics.
+This repository contains VoyGPT, a full-stack AI Brand Assistant application built with React frontend and Express backend. The application serves as an intelligent companion for mastering AI tools and building powerful brands, organized around six main categories: Writing Tools, Brand Strategy, Image & Art, Marketing, Tech Integration, and Analytics. The app features a welcome modal for first-time users with Instagram integration.
 
 ## User Preferences
 

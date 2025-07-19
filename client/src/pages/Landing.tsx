@@ -23,7 +23,7 @@ export default function Landing() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4 text-slate-50">
             Welcome to<br />
-            <span className="text-primary">AI Brand Assistant</span>
+            <span className="text-primary">VoyGPT</span>
           </h1>
           <p className="text-slate-300 text-lg px-4 max-w-md leading-relaxed">
             Your intelligent companion for mastering AI tools and building powerful brands
