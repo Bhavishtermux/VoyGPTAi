@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains VoyGPT, a full-stack AI Brand Assistant application built with React frontend and Express backend. The application serves as an intelligent companion for mastering AI tools and building powerful brands, organized around six main categories: Writing Tools, Brand Strategy, Image & Art, Marketing, Tech Integration, and Analytics. The app features a welcome modal for first-time users with Instagram integration.
+This repository contains VoyGPT, a mobile-optimized full-stack AI Brand Assistant application built with React frontend and Express backend. The application serves as an intelligent companion for mastering AI tools and building powerful brands, organized around six main categories: Writing Tools, Brand Strategy, Image & Art, Marketing, Tech Integration, and Analytics. The app features a welcome modal for first-time users with Instagram integration and is fully optimized for mobile devices with touch-friendly interactions.
 
 ## User Preferences
 
@@ -48,11 +48,15 @@ The application uses PostgreSQL with Drizzle ORM, featuring:
 - Streaming responses for real-time interaction
 
 ### UI/UX Design
-- Mobile-first responsive design with glass morphism effects
+- Mobile-optimized responsive design with glass morphism effects
 - Dark theme with custom color scheme
-- Bottom navigation for mobile experience
+- Touch-friendly navigation with 44px+ touch targets
+- iOS safe area support and web app capabilities
+- Enhanced visual feedback with active states and animations
+- Single-column mobile layout for better usability
 - Category-based AI assistant selection
 - Real-time chat interface with suggested messages
+- Welcome modal with Instagram integration (instagram.com/voygpt)
 
 ## Data Flow
 
