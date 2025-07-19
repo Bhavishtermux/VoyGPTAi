@@ -20,7 +20,8 @@ import {
   Image,
   Megaphone,
   Code,
-  BarChart3
+  BarChart3,
+  Camera
 } from "lucide-react";
 import type { ConversationWithMessages, Message } from "@shared/schema";
 
@@ -29,6 +30,7 @@ const categoryIcons = {
   branding: Palette,
   creative: Image,
   marketing: Megaphone,
+  instagram: Camera,
   technical: Code,
   analytics: BarChart3
 };
@@ -38,6 +40,7 @@ const categoryTitles = {
   branding: 'Brand Strategy AI',
   creative: 'Creative AI Tools',
   marketing: 'Marketing AI Expert',
+  instagram: 'Instagram Growth Expert',
   technical: 'Technical Integration',
   analytics: 'AI Analytics Guide'
 };
@@ -62,6 +65,11 @@ const suggestedMessages = {
     "AI marketing campaigns",
     "Content automation strategies",
     "Customer targeting with AI"
+  ],
+  instagram: [
+    "Analyze @username account growth",
+    "Content strategy recommendations",
+    "Best posting times and hashtags"
   ],
   technical: [
     "AI tool integration",
@@ -360,7 +368,7 @@ export default function ChatInterface() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask about AI tools for branding..."
+              placeholder={category === 'instagram' ? "Analyze @username or ask about growth strategies..." : "Ask about AI tools for branding..."}
               className="bg-slate-700/40 glass-card border-slate-600/50 text-white placeholder-slate-400 focus:ring-primary/50"
               disabled={sendMessageMutation.isPending || !conversationId}
             />

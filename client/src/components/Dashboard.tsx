@@ -14,7 +14,8 @@ import {
   Code, 
   BarChart3,
   User,
-  LogOut
+  LogOut,
+  Camera
 } from "lucide-react";
 
 const categories = [
@@ -54,6 +55,13 @@ const categories = [
     color: 'bg-blue-500/20 text-blue-400'
   },
   {
+    id: 'instagram',
+    title: 'Instagram Insights',
+    description: 'Deep account analysis and personalized growth strategies',
+    icon: Camera,
+    color: 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-pink-400'
+  },
+  {
     id: 'analytics',
     title: 'Analytics',
     description: 'AI-driven insights and performance tracking',
@@ -62,7 +70,7 @@ const categories = [
   }
 ];
 
-const filterOptions = ['All', 'Design', 'Creative', 'Technical'];
+const filterOptions = ['All', 'Design', 'Creative', 'Social Media', 'Technical'];
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -77,6 +85,7 @@ export default function Dashboard() {
     if (activeFilter === 'All') return true;
     if (activeFilter === 'Design') return ['branding', 'creative'].includes(category.id);
     if (activeFilter === 'Creative') return ['writing', 'creative', 'marketing'].includes(category.id);
+    if (activeFilter === 'Social Media') return ['marketing', 'instagram'].includes(category.id);
     if (activeFilter === 'Technical') return ['technical', 'analytics'].includes(category.id);
     return true;
   });
