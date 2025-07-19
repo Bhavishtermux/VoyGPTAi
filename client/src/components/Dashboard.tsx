@@ -86,14 +86,14 @@ export default function Dashboard() {
       <WelcomeModal />
       <div className="min-h-screen bg-background pb-24 page-transition">
       {/* Header */}
-      <div className="p-6 pb-4">
-        <div className="flex items-center justify-between mb-6">
+      <div className="p-4 pb-3 safe-area-inset-top">
+        <div className="flex items-center justify-between mb-4">
           <div>
-            <h1 className="text-2xl font-bold text-slate-50">VoyGPT</h1>
-            <p className="text-slate-400 text-sm">Choose your learning path</p>
+            <h1 className="text-3xl font-bold text-slate-50">VoyGPT</h1>
+            <p className="text-slate-400 text-base">Choose your learning path</p>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center overflow-hidden">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center overflow-hidden touch-target">
               {user?.profileImageUrl ? (
                 <img 
                   src={user.profileImageUrl} 
@@ -101,27 +101,26 @@ export default function Dashboard() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <User className="w-5 h-5 text-white" />
+                <User className="w-6 h-6 text-white" />
               )}
             </div>
             <Button
               variant="ghost"
-              size="sm"
               onClick={handleLogout}
-              className="text-slate-400 hover:text-slate-200"
+              className="text-slate-400 hover:text-slate-200 p-3 touch-target"
             >
-              <LogOut className="w-4 h-4" />
+              <LogOut className="w-5 h-5" />
             </Button>
           </div>
         </div>
         
         {/* Category Filters */}
-        <div className="flex gap-3 mb-6 overflow-x-auto pb-2">
+        <div className="flex gap-3 mb-6 overflow-x-auto pb-2 px-1">
           {filterOptions.map((filter, index) => (
             <Badge
               key={filter}
               variant={filter === activeFilter ? "default" : "secondary"}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap cursor-pointer transition-all duration-200 ${
+              className={`px-6 py-3 rounded-full text-base font-medium whitespace-nowrap cursor-pointer transition-all duration-200 touch-target ${
                 filter === activeFilter 
                   ? 'bg-primary text-white hover:bg-primary/90 transform scale-105' 
                   : 'glass-card bg-slate-700/40 text-slate-300 hover:bg-slate-700/60 hover:scale-105'
@@ -135,18 +134,18 @@ export default function Dashboard() {
       </div>
 
       {/* Feature Cards Grid */}
-      <div className="px-6 grid grid-cols-2 gap-4">
+      <div className="px-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {filteredCategories.map((category) => {
           const IconComponent = category.icon;
           return (
             <Link key={category.id} href={`/chat/${category.id}`}>
-              <Card className="glass-card border-slate-700/50 cursor-pointer hover:bg-slate-700/40 transition-all duration-300 h-full scale-hover">
-                <CardContent className="p-5">
-                  <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mb-4 transition-transform duration-200`}>
-                    <IconComponent className="w-5 h-5" />
+              <Card className="glass-card border-slate-700/50 cursor-pointer hover:bg-slate-700/40 transition-all duration-300 h-full touch-target active:scale-95">
+                <CardContent className="p-6">
+                  <div className={`w-16 h-16 ${category.color} rounded-2xl flex items-center justify-center mb-4 transition-transform duration-200`}>
+                    <IconComponent className="w-7 h-7" />
                   </div>
-                  <h3 className="font-semibold mb-2 text-slate-50">{category.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <h3 className="font-bold mb-3 text-slate-50 text-lg">{category.title}</h3>
+                  <p className="text-slate-400 text-base leading-relaxed">
                     {category.description}
                   </p>
                 </CardContent>

@@ -223,30 +223,28 @@ export default function ChatInterface() {
   return (
     <div className="min-h-screen bg-background flex flex-col page-transition">
       {/* Header */}
-      <header className="glass-nav p-4 flex items-center border-b border-slate-700/50">
+      <header className="glass-nav p-4 flex items-center border-b border-slate-700/50 safe-area-inset-top">
         <Button
           variant="ghost"
-          size="sm"
           onClick={() => setLocation("/")}
-          className="mr-4 text-slate-300 hover:text-white p-2"
+          className="mr-4 text-slate-300 hover:text-white p-3 touch-target active:scale-95"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-6 h-6" />
         </Button>
         <div className="flex items-center flex-1">
-          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
-            <CategoryIcon className="w-5 h-5 text-white" />
+          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
+            <CategoryIcon className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h2 className="font-semibold text-slate-50">{categoryTitle}</h2>
-            <p className="text-slate-400 text-sm">Specialized in AI tools & branding</p>
+            <h2 className="font-bold text-slate-50 text-lg">{categoryTitle}</h2>
+            <p className="text-slate-400 text-base">Specialized in AI tools & branding</p>
           </div>
         </div>
         <Button
           variant="ghost"
-          size="sm"
-          className="text-slate-400 hover:text-white p-2"
+          className="text-slate-400 hover:text-white p-3 touch-target"
         >
-          <MoreVertical className="w-5 h-5" />
+          <MoreVertical className="w-6 h-6" />
         </Button>
       </header>
 

@@ -33,9 +33,9 @@ export default function Landing() {
         {/* Login Button */}
         <Button 
           onClick={handleLogin}
-          className="w-full max-w-sm bg-primary hover:bg-indigo-600 text-white font-semibold py-6 px-8 rounded-xl transition-all duration-200 mb-8 text-lg"
+          className="w-full max-w-sm bg-primary hover:bg-indigo-600 text-white font-semibold py-6 px-8 rounded-xl transition-all duration-200 mb-8 text-lg touch-target active:scale-95"
         >
-          <Sparkles className="w-5 h-5 mr-3" />
+          <Sparkles className="w-6 h-6 mr-3" />
           Start Learning
         </Button>
         
